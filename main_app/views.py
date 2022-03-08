@@ -18,8 +18,15 @@ class About(View):
         return HttpResponse("Smooth Hoperator About")
 
 class Beers:
-    def __init__(self, name, image, type, description):
+    def __init__(self, name, brand, image, type, description):
         self.name = name
+        self.brand = brand
         self.image = image
         self.type = type
         self.description = description
+
+beers = [
+    Beers("Silent Accord", "Six Bridges Brewing", "https://www.ajc.com/resizer/Do3KCvCWpdvpyOVZrk4gYm0NtrY=/814x458/cloudfront-us-east-1.images.arcpublishing.com/ajc/XRYGDKSF36SEKERV7VLENYYELY.jpg" "Coconut Milk Stout", "Jet black in color with a creamy, tan head, this milk stout is full of flavors. Aromas of coffee and dark chocolate come through from the use of roasted barley and chocolate malts. Smooth, dark chocolate and subtle notes of toasted coconut create a pleasant bouquet of flavors for the palate. A medium-light body that shows creaminess and low roast makes this offering approachable year round. At 6.5%, this beer is a real treat for those looking for rich, velvety smooth stout." ),
+    Beers("Neon Cylinders", "Creature Comforts Brewing Co.", "https://creaturecomfortsbeer.com/wp-content/uploads/2022/02/NeonCylinders-MagentaBeams_Can_for_web.jpg", "Sour Ale", "Neon Cylinders is an Intensely Fruited Sour Ale series. This version, 'Magenta Beams,' features prickly pear, passion fruit, Cara Cara orange, and grapefruit. This Neon Cylinders is rich in fruit flavor, and SUPER MAGENTA!" ),
+    Beers("Bestie", "Wild Heaven Beer", "https://static.spotapps.co/web/wildheavenbeer--com/custom/download/bestie_logo.jpg", "Pub Ale", "Bestie is a delicious session Pub Ale brewed in collaboration with England’s Arundel Brewery, Wild Heaven Beer and Robert Merrick of Atlanta’s 9 Mile Station. Built on the backbone of a traditional Standard Pub Ale with our own twist added, Bestie is designed to be a flavor-forward, yet easy-drinking beer. It is medium amber in color with light hints of peat and dark fruits and finishes crisp and clean with lingering floral hops.")
+]
