@@ -6,8 +6,8 @@ class Beer(models.Model):
     name = models.CharField(max_length=90)
     brand = models.CharField(max_length=120)
     img = models.CharField(max_length=250)
-    type = models.CharField(max_length=90)
-    desc = models.TextField(max_length=500)
+    style = models.CharField(max_length=90)
+    description = models.TextField(max_length=900, blank=True)
     currently_being_poured = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
 
