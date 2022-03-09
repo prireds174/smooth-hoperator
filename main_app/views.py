@@ -12,7 +12,7 @@ class Home(TemplateView):
     # def get(self, request):
     #     return HttpResponse("Smooth Hoperator")
 
-class About(TemplateView):
+class About(View):
     template_name = "about.html"
 
 class Beer:
