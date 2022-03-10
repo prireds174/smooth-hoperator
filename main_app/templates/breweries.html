@@ -1,0 +1,40 @@
+{% extends 'base.html' %} {% comment %} for head title tags and helping us with
+SEO {% endcomment %} {% block title %}Beers{% endblock %} {% block content %}
+
+<h1 class="title pt-5">{{ header }}</h1>
+<form class="mb-5" method="get">
+  <div class="field has-addons">
+    <div class="control">
+      <!-- input will search by name   -->
+      <input class="input" type="text" name="name" placeholder="name" />
+    </div>
+    <div class="control">
+      <input class="button is-success" type="submit" value="Search" />
+    </div>
+  </div>
+  <!--  redirect back to list  -->
+  <a class="button is-dark" href="{% url 'breweries' %}">Clear Search</a>
+</form>
+<div class="gallery">
+  {% for brewery in breweries %}
+  
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-square">
+          <img src="https://www.azuremagazine.com/wp-content/uploads/2018/11/contemporary-breweries-distilleries-junction-craft-brewing-7.jpg" alt="{{brewery.name}}" />
+        </figure>
+      </div>
+      <div class="card-header">
+        <p class="card-header-title">{{brewery.name}}</p>
+      </div>
+    </div>
+  </a>
+  {% empty %}
+  <article class="message">
+    <div class="message-header">
+      <p>No Brewskis Available</p>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+{% endblock %}

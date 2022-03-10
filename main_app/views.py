@@ -1,11 +1,13 @@
 from ast import BinOp
 from re import template
+from urllib import response
 from .models import Beer
 from django.shortcuts import render
 from django.views import View
 from django.views.generic import DetailView
 from django.http import HttpResponse
 from django.views.generic.base import TemplateView
+import requests
 
 # Create your views here.
 
@@ -48,3 +50,18 @@ class BeerList(TemplateView):
 class BeerDetail(DetailView):
     model = Beer
     template_name="beer_detail.html"
+
+
+##API 
+def breweries(request):
+
+    response = requests.get('https://api.openbrewerydb.org/breweries')
+
+    breweries = response.json()
+    #print(breweries)
+
+    #return HttpResponse("Breweries")
+    return render(request, "breweries.html", {'breweries': breweries})
+    pass
+
+
