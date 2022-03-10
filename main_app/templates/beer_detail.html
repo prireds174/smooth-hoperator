@@ -1,4 +1,5 @@
 {% extends 'base.html' %} {% block content %}
+ 
 <div class="detail__img">
   <img src="{{beer.img}}" alt="{{beer.name}}" />
 </div>
@@ -6,18 +7,23 @@
   {% if beer.currently_being_poured %}
   <div class="icon-text">
     <span class="icon has-text-info">
-        <img src="https://img.icons8.com/external-justicon-lineal-color-justicon/80/000000/external-beer-st-patricks-day-justicon-lineal-color-justicon.png"/>
+        <i class="fa-solid fa-beer-mug-empty"></i>
     </span>
-    <span> On tap </span>
+    <span>On tap</span>
   </div>
   {% endif %}
   <h1 class="title">{{beer.name}}</h1>
+  <a href="{% url 'beer_list' %}">Back to The Brews</a>
+
 </div>
+
 <div class="detail__container">
   <div class="detail__about">
     <h4 class="title is-4">Description</h4>
     <p>{{ beer.description }}</p>
   </div>
 </div>
+
+
 
 {% endblock %}

@@ -7,5 +7,4 @@ urlpatterns = [
     path('beers/', views.BeerList.as_view(), name="beer_list"),
     path('beers/<int:pk>/', views.BeerDetail.as_view(), name="beer_detail")
     
-
 ]
