@@ -1,8 +1,8 @@
-### Your project idea
+### Smooth Hoperator
 
 > An app to find nearby breweries for a nice sip after. Beer section in app to list different beers from different places. Implement User feedback feature for Breweries.
 
-### Your tech stack (frontend, backend, database)
+### The tech stack (frontend, backend, database)
 
 > Django app with API implementation
 
