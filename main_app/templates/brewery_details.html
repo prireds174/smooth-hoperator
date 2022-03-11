@@ -19,10 +19,15 @@
 
 <div class="detail__container">
   <div class="detail__about">
-    <h4 class="title is-4">Description</h4>
+    <h2 class="title is-3">Brewery Info</h2>
+    <h3>Brewery Type</h3>
     <p>{{ brewery.brewery_type }}</p>
+    <h3>Address</h3>
     <p>{{ brewery.street }}, {{ brewery.city }}, {{brewery.state}} </p>
-    <p>{{ brewery.website_url }}</p>
+    <br>
+    <a href="{{ brewery.website_url }}" target="_blank">
+        Brewery Website
+    </a>
   </div>
 </div>
 
