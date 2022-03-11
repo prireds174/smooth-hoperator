@@ -17,11 +17,11 @@ SEO {% endcomment %} {% block title %}Beers{% endblock %} {% block content %}
 </form>
 <div class="gallery">
   {% for brewery in breweries %}
-  
+  <a href="{% url 'brewery_details' brewery.id %}">
     <div class="card">
       <div class="card-image">
         <figure class="image is-square">
-          <img src="https://www.azuremagazine.com/wp-content/uploads/2018/11/contemporary-breweries-distilleries-junction-craft-brewing-7.jpg" alt="{{brewery.name}}" />
+          <img src="https://www.beveragedaily.com/var/wrbm_gb_food_pharma/storage/images/_aliases/wrbm_large/publications/food-beverage-nutrition/beveragedaily.com/news/markets/ab-inbev-acquires-platform-beer-co/10027187-1-eng-GB/AB-InBev-acquires-Platform-Beer-Co.jpg" alt="{{brewery.name}}" />
         </figure>
       </div>
       <div class="card-header">

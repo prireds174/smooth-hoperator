@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% block content %}
+ 
+<div class="detail__img">
+  <img src="https://media.istockphoto.com/photos/beer-tasting-picture-id488101157?b=1&k=20&m=488101157&s=170667a&w=0&h=Jyg9GeyKOj4CzL7oND2AvUsV9pB0EqxfF7UcbTjsH24=" alt="{{brewery.name}}" />
+</div>
+<div class="detail__name">
+  {% if beer.currently_being_poured %}
+  <div class="icon-text">
+    <span class="icon has-text-info">
+        <i class="fa-solid fa-beer-mug-empty"></i>
+    </span>
+    <span>On tap</span>
+  </div>
+  {% endif %}
+  <h1 class="title">{{brewery.name}}</h1>
+  <a href="{% url 'breweries' %}">Quench your Thirst Elsewhere</a>
+
+</div>
+
+<div class="detail__container">
+  <div class="detail__about">
+    <h4 class="title is-4">Description</h4>
+    <p>{{ brewery.brewery_type }}</p>
+    <p>{{ brewery.street }}, {{ brewery.city }}, {{brewery.state}} </p>
+    <p>{{ brewery.website_url }}</p>
+  </div>
+</div>
+
+
+
+{% endblock %}

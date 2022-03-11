@@ -52,16 +52,27 @@ class BeerDetail(DetailView):
     template_name="beer_detail.html"
 
 
-##API 
+##API
 def breweries(request):
 
-    response = requests.get('https://api.openbrewerydb.org/breweries')
+    response = requests.get('https://api.openbrewerydb.org/breweries?by_state=georgia')
 
     breweries = response.json()
-    #print(breweries)
+        #print(breweries)
 
-    #return HttpResponse("Breweries")
+        #return HttpResponse("Breweries")
     return render(request, "breweries.html", {'breweries': breweries})
     pass
 
+class BreweryDetail(TemplateView):
+    template_name = "brewery_details.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        print(self.kwargs)
+        response = requests.get(f"https://api.openbrewerydb.org/breweries/{self.kwargs['pk']}")
+        context[ 'brewery' ] = response.json()
+        print(response.json())
+        return context
+        
+       
