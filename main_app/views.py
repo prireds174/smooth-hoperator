@@ -6,7 +6,9 @@ from django.shortcuts import render
 from django.views import View
 from django.views.generic import DetailView
 from django.http import HttpResponse
+from django.urls import reverse
 from django.views.generic.base import TemplateView
+from django.views.generic.edit import UpdateView
 import requests
 
 # Create your views here.
@@ -53,6 +55,14 @@ class BeerList(TemplateView):
 class BeerDetail(DetailView):
     model = Beer
     template_name="beer_detail.html"
+
+class BeerUpdate(UpdateView):
+    model = Beer
+    fields = ['currently_being_poured']
+    template_name = "beer_update.html"
+    
+    def get_success_url(self):
+        return reverse('beer_detail', kwargs={'pk': self.object.pk})
 
 
 ##API
