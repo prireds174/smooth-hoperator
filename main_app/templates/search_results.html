@@ -4,19 +4,20 @@
 
 <h1>Search Results</h1>
 <div class="gallery">
-    {% for response in result.results %}
-    <a href="{% url 'brewery_details' result.id %}">
+    {% for response in result %}
+    <a href="{% url 'brewery_details' response.id %}">
       <div class="card">
         <div class="card-image">
           <figure class="image is-square">
-            <img src="https://www.beveragedaily.com/var/wrbm_gb_food_pharma/storage/images/_aliases/wrbm_large/publications/food-beverage-nutrition/beveragedaily.com/news/markets/ab-inbev-acquires-platform-beer-co/10027187-1-eng-GB/AB-InBev-acquires-Platform-Beer-Co.jpg" alt="{{brewery.name}}" />
+            <img src="https://www.beveragedaily.com/var/wrbm_gb_food_pharma/storage/images/_aliases/wrbm_large/publications/food-beverage-nutrition/beveragedaily.com/news/markets/ab-inbev-acquires-platform-beer-co/10027187-1-eng-GB/AB-InBev-acquires-Platform-Beer-Co.jpg" alt="{{response.name}}" />
           </figure>
         </div>
         <div class="card-header">
-          <p class="card-header-title">{{brewery.name}}</p>
+          <p class="card-header-title">{{response.name}}</p>
         </div>
       </div>
-    </a>
+      </a>
+    
     {% empty %}
     <article class="message">
       <div class="message-header">

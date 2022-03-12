@@ -58,7 +58,7 @@ class BeerDetail(DetailView):
 ##API
 def breweries(request):
 
-    response = requests.get('https://api.openbrewerydb.org/breweries?by_state=georgia')
+    response = requests.get('https://api.openbrewerydb.org/breweries?')
 
     breweries = response.json()
         #print(breweries)
@@ -66,6 +66,7 @@ def breweries(request):
         #return HttpResponse("Breweries")
     return render(request, "breweries.html", {'breweries': breweries})
     pass
+
 class BreweryDetail(TemplateView):
     template_name = "brewery_details.html"
 
@@ -78,11 +79,13 @@ class BreweryDetail(TemplateView):
         return context
         
 class SearchResult(TemplateView):
-    
+
     def get(self, request, *args, **kwargs):
         search_query = ''
-        search_query = request.GET('search')
-        result = requests.get(f"https://api.openbrewerydb.org/breweries?by_state={search_query}").json()
+        search_query = request.GET['search']
+        print(search_query)
+        result = requests.get(f"https://api.openbrewerydb.org/breweries/search?query={search_query}").json()
+        print(result)
         return render (request, 'search_results.html', { 'result': result})
 
 
