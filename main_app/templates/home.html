@@ -1,3 +1,33 @@
 {% extends 'base.html' %} {% block content %}
     <h1>Smooth Hoperator</h1>
+    <div class="container">
+    <div class="gallery">
+        
+        <a href="{% url 'breweries' %}">
+            <div class="card">
+                <div class="card-image">
+                    <figure class="image is-square">
+                      <img src="https://www.designlinesmagazine.com/cms/media/2018/11/junction-craft-brewing-designlines-magazine-01.jpg" alt="Breweries" />
+                    </figure>
+                  </div>
+                  <div class="card-header">
+                    <p class="card-header-title">Breweries</p>
+                  </div>
+                </div>
+              </a>       
+        <a href="{% url 'beer_list' %}">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-square">
+                <img src="https://beveragedynamics.com/wp-content/uploads/2020/01/three-assorted-drinking-glasses-with-beer-1267700.jpg" alt="Beer" />
+              </figure>
+            </div>
+            <div class="card-header">
+              <p class="card-header-title">Brews</p>
+            </div>
+          </div>
+        </a>
+       
+          </div>
+          </div>
 {% endblock %}

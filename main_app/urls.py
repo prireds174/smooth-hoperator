@@ -8,6 +8,6 @@ urlpatterns = [
     path('beers/<int:pk>/', views.BeerDetail.as_view(), name="beer_detail"),
     # Api
     path('breweries/', views.breweries, name='breweries'),
-    path('breweries/<str:pk>/', views.BreweryDetail.as_view(), name="brewery_details")
-
+    path('breweries/<str:pk>/', views.BreweryDetail.as_view(), name="brewery_details"),
+    path('breweries/results', views.views.SearchResult.as_view(), name="search_results")
 ]

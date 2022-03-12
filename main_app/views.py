@@ -45,7 +45,10 @@ class BeerList(TemplateView):
         else:
             context["beers"] = Beer.objects.all()
             context["header"] = "The Brews"
-        return context
+            return context
+        style =  self.request.GET.get("style")
+        if style != None:
+            context["beers"] = Beer.objects.filter()
 
 class BeerDetail(DetailView):
     model = Beer
@@ -63,7 +66,6 @@ def breweries(request):
         #return HttpResponse("Breweries")
     return render(request, "breweries.html", {'breweries': breweries})
     pass
-
 class BreweryDetail(TemplateView):
     template_name = "brewery_details.html"
 
@@ -75,4 +77,13 @@ class BreweryDetail(TemplateView):
         print(response.json())
         return context
         
+class SearchResult(TemplateView):
+    
+    def get(self, request, *args, **kwargs):
+        search_query = ''
+        search_query = request.GET('search')
+        result = requests.get(f"https://api.openbrewerydb.org/breweries?by_state={search_query}").json()
+        return render (request, 'search_results.html', { 'result': result})
+
+
        

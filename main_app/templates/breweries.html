@@ -1,12 +1,12 @@
 {% extends 'base.html' %} {% comment %} for head title tags and helping us with
-SEO {% endcomment %} {% block title %}Beers{% endblock %} {% block content %}
+SEO {% endcomment %} {% block title %}Breweries{% endblock %} {% block content %}
 
 <h1 class="title pt-5">{{ header }}</h1>
 <form class="mb-5" method="get">
   <div class="field has-addons">
     <div class="control">
-      <!-- input will search by name   -->
-      <input class="input" type="text" name="name" placeholder="name" />
+      <!-- input will search by name (SearchBar)  -->
+      <input class="input" type="search" name="search" placeholder="Search for Brewery" />
     </div>
     <div class="control">
       <input class="button is-success" type="submit" value="Search" />
@@ -32,7 +32,7 @@ SEO {% endcomment %} {% block title %}Beers{% endblock %} {% block content %}
   {% empty %}
   <article class="message">
     <div class="message-header">
-      <p>No Brewskis Available</p>
+      <p>No Brewers Available</p>
     </div>
   </article>
   {% endfor %}

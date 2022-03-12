@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %} Brewery Results {% endblock %}
+{% block content %}
+
+<h1>Search Results</h1>
+<div class="gallery">
+    {% for response in result.results %}
+    <a href="{% url 'brewery_details' result.id %}">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-square">
+            <img src="https://www.beveragedaily.com/var/wrbm_gb_food_pharma/storage/images/_aliases/wrbm_large/publications/food-beverage-nutrition/beveragedaily.com/news/markets/ab-inbev-acquires-platform-beer-co/10027187-1-eng-GB/AB-InBev-acquires-Platform-Beer-Co.jpg" alt="{{brewery.name}}" />
+          </figure>
+        </div>
+        <div class="card-header">
+          <p class="card-header-title">{{brewery.name}}</p>
+        </div>
+      </div>
+    </a>
+    {% empty %}
+    <article class="message">
+      <div class="message-header">
+        <p>No Brewers Available</p>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+  {% endblock %}
