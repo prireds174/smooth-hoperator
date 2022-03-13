@@ -10,13 +10,15 @@ from django.urls import reverse
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import UpdateView
 import requests
-
+import os
 # Create your views here.
+
 
 class Home(TemplateView):
     template_name = "home.html"
     # def get(self, request):
     #     return HttpResponse("Smooth Hoperator")
+
 
 class About(TemplateView):
     template_name = "about.html"
@@ -35,6 +37,7 @@ class About(TemplateView):
 #     Beer("Bestie", "Wild Heaven Beer", "https://static.spotapps.co/web/wildheavenbeer--com/custom/download/bestie_logo.jpg", "Pub Ale", "Bestie is a delicious session Pub Ale brewed in collaboration with England’s Arundel Brewery, Wild Heaven Beer and Robert Merrick of Atlanta’s 9 Mile Station. Built on the backbone of a traditional Standard Pub Ale with our own twist added, Bestie is designed to be a flavor-forward, yet easy-drinking beer. It is medium amber in color with light hints of peat and dark fruits and finishes crisp and clean with lingering floral hops.")
 # ]
 
+
 class BeerList(TemplateView):
     template_name = "beer_list.html"
 
@@ -48,34 +51,38 @@ class BeerList(TemplateView):
             context["beers"] = Beer.objects.all()
             context["header"] = "The Brews"
             return context
-        style =  self.request.GET.get("style")
+        style = self.request.GET.get("style")
         if style != None:
             context["beers"] = Beer.objects.filter()
 
+
 class BeerDetail(DetailView):
     model = Beer
-    template_name="beer_detail.html"
+    template_name = "beer_detail.html"
+
 
 class BeerUpdate(UpdateView):
     model = Beer
     fields = ['currently_being_poured']
     template_name = "beer_update.html"
-    
+
     def get_success_url(self):
         return reverse('beer_detail', kwargs={'pk': self.object.pk})
 
 
-##API
+# API
 def breweries(request):
 
     response = requests.get('https://api.openbrewerydb.org/breweries?')
 
     breweries = response.json()
-        #print(breweries)
+    # print(breweries)
 
-        #return HttpResponse("Breweries")
-    return render(request, "breweries.html", {'breweries': breweries})
+    # return HttpResponse("Breweries")
+    return render(request, "breweries.html", {'breweries': breweries,
+                                              'api_key': os.getenv('API_KEY')})
     pass
+
 
 class BreweryDetail(TemplateView):
     template_name = "brewery_details.html"
@@ -83,20 +90,20 @@ class BreweryDetail(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         print(self.kwargs)
-        response = requests.get(f"https://api.openbrewerydb.org/breweries/{self.kwargs['pk']}")
-        context[ 'brewery' ] = response.json()
+        response = requests.get(
+            f"https://api.openbrewerydb.org/breweries/{self.kwargs['pk']}")
+        context['brewery'] = response.json()
         print(response.json())
         return context
-        
+
+
 class SearchResult(TemplateView):
 
     def get(self, request, *args, **kwargs):
         search_query = ''
         search_query = request.GET['search']
         print(search_query)
-        result = requests.get(f"https://api.openbrewerydb.org/breweries/search?query={search_query}").json()
+        result = requests.get(
+            f"https://api.openbrewerydb.org/breweries/search?query={search_query}").json()
         print(result)
-        return render (request, 'search_results.html', { 'result': result})
-
-
-       
+        return render(request, 'search_results.html', {'result': result})
