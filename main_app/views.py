@@ -3,12 +3,23 @@ from re import template
 from urllib import response
 from .models import Beer
 from django.shortcuts import render
+from django.shortcuts import redirect
+
 from django.views import View
 from django.views.generic import DetailView
 from django.http import HttpResponse
+from django.shortcuts import redirect
 from django.urls import reverse
 from django.views.generic.base import TemplateView
-from django.views.generic.edit import UpdateView
+from django.views.generic.edit import CreateView, UpdateView
+
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
+
+
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+
 import requests
 import os
 # Create your views here.
@@ -43,17 +54,34 @@ class BeerList(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+
         name = self.request.GET.get("name")
+
         if name != None:
             context["beers"] = Beer.objects.filter(name__icontains=name)
-            context["header"] = f"Being Poured: {name}"
+            context["header"] = f"Currently Pouring: {name}"
         else:
             context["beers"] = Beer.objects.all()
             context["header"] = "The Brews"
-            return context
-        style = self.request.GET.get("style")
-        if style != None:
-            context["beers"] = Beer.objects.filter()
+        return context
+
+
+@method_decorator(login_required, name='dispatch')
+class BeerCreate(CreateView):
+    model = Beer
+    fields = ['name', 'brand', 'img', 'style']
+    template_name = "beer_create.html"
+    success_url = "/beers/"
+
+     # This is our new method that will add the user into our submitted form
+     # validate the form
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(BeerCreate, self).form_valid(form)
+    # redirect
+    def get_success_url(self):
+        print(self.kwargs)
+        return reverse('beer_detail', kwargs={'pk': self.object.pk})
 
 
 class BeerDetail(DetailView):
@@ -79,8 +107,7 @@ def breweries(request):
     # print(breweries)
 
     # return HttpResponse("Breweries")
-    return render(request, "breweries.html", {'breweries': breweries,
-                                              'api_key': os.getenv('API_KEY')})
+    return render(request, "breweries.html", {'breweries': breweries})
     pass
 
 
@@ -107,3 +134,23 @@ class SearchResult(TemplateView):
             f"https://api.openbrewerydb.org/breweries/search?query={search_query}").json()
         print(result)
         return render(request, 'search_results.html', {'result': result})
+
+
+# Sign-up
+class Signup(View):
+    # show a form to fill out
+    def get(self, request):
+        form = UserCreationForm()
+        context = {"form": form}
+        return render(request, "registration/signup.html", context)
+    # on form ssubmit validate the form and login the user.
+
+    def post(self, request):
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect("user_favorites")
+        else:
+            context = {"form": form}
+            return render(request, "registration/signup.html", context)

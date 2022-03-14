@@ -1,19 +1,20 @@
-{% extends 'base.html' %} {% comment %} for head title tags and helping us with
-SEO {% endcomment %} {% block title %}Beers{% endblock %} {% block content %}
+{% extends 'base.html' %} {% block content %}
 
-<h1 class="title pt-5">{{ header }}</h1>
+<h1 class="title">{{ header }}</h1>
+
 <form class="mb-5" method="get">
   <div class="field has-addons">
     <div class="control">
-      <!-- input will search by name   -->
+      <!--  Our input will search by name of artist  -->
       <input class="input" type="text" name="name" placeholder="name" />
     </div>
     <div class="control">
       <input class="button is-success" type="submit" value="Search" />
     </div>
   </div>
-  <!--  redirect back to list  -->
+  <!--  This anchor tag will redirect back to artist list without a query param -->
   <a class="button is-dark" href="{% url 'beer_list' %}">Clear Search</a>
+  <a class="button is-dark" href="{% url 'beer_create' %}">Add Beer</a>
 </form>
 <div class="gallery">
   {% for beer in beers %}
@@ -37,4 +38,5 @@ SEO {% endcomment %} {% block title %}Beers{% endblock %} {% block content %}
   </article>
   {% endfor %}
 </div>
+
 {% endblock %}
