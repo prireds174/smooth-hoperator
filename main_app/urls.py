@@ -7,11 +7,12 @@ urlpatterns = [
     path('beers/', views.BeerList.as_view(), name="beer_list"),
     path('beers/<int:pk>/', views.BeerDetail.as_view(), name="beer_detail"),
     path('beers/<int:pk>/update', views.BeerUpdate.as_view(), name="beer_update"),
-
-
     path('beers/new/', views.BeerCreate.as_view(), name="beer_create"),
+
     # User
-    # path('beers/user', views.UserList.as_view(), name="user_list"),
+    path('beers/favorite', views.FavoriteList.as_view(), name="favorite_list"),
+    path('beers/favorite/new', views.FavoriteCreate.as_view(), name="favorite_create"),
+
 
     # Api
     path('breweries/', views.breweries, name='breweries'),

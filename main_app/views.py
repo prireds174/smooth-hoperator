@@ -1,7 +1,7 @@
 from ast import BinOp
 from re import template
 from urllib import response
-from .models import Beer
+from .models import Beer, Favorites
 from django.shortcuts import render
 from django.shortcuts import redirect
 
@@ -20,6 +20,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
+from django.contrib.auth.models import User
 import requests
 import os
 # Create your views here.
@@ -67,18 +68,57 @@ class BeerList(TemplateView):
 
 
 @method_decorator(login_required, name='dispatch')
+class FavoriteList(TemplateView):
+    template_name = "favorite_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        name = self.request.GET.get("name")
+
+        if name != None:
+            context["favorites"] = Favorites.objects.filter(
+                name__icontains=name, user=self.request.user)
+            context["header"] = f"Currently Pouring: {name}"
+        else:
+            context["favorites"] = Favorites.objects.filter(
+                user=self.request.user)
+            context["header"] = "The Brews"
+        return context
+
+
+class FavoriteCreate(CreateView):
+    model = Favorites
+    fields = ['name', 'brand', 'img', 'style']
+    template_name = "favorite_create.html"
+    success_url = "/beers/favorite/"
+
+    # This is our new method that will add the user into our submitted form
+    # validate the form
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(FavoriteCreate, self).form_valid(form)
+    # redirect
+
+    def get_success_url(self):
+        print(self.kwargs)
+        return reverse('favorite_list')
+
+
+@method_decorator(login_required, name='dispatch')
 class BeerCreate(CreateView):
     model = Beer
     fields = ['name', 'brand', 'img', 'style']
     template_name = "beer_create.html"
     success_url = "/beers/"
 
-     # This is our new method that will add the user into our submitted form
-     # validate the form
+    # This is our new method that will add the user into our submitted form
+    # validate the form
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(BeerCreate, self).form_valid(form)
     # redirect
+
     def get_success_url(self):
         print(self.kwargs)
         return reverse('beer_detail', kwargs={'pk': self.object.pk})
@@ -150,7 +190,7 @@ class Signup(View):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect("user_favorites")
+            return redirect("beer_list")
         else:
             context = {"form": form}
             return render(request, "registration/signup.html", context)

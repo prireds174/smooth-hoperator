@@ -1,10 +1,13 @@
 body {
-  background-color: #fecd83ee;
+  background-color: #e3d7c9;
   color: #ffffff;
   min-height: 100vh;
 }
 
-h1,
+h1 {
+  color: #006a78;
+}
+
 h2,
 h3 {
   color: #ffffff;
@@ -16,7 +19,9 @@ h3 {
 }
 
 .title {
-  color: #ffffff;
+  color: #56001b;
+  font-family: "Chicle", cursive;
+  font-size: 5rem;
 }
 
 .gallery {
@@ -28,7 +33,9 @@ h3 {
 
 .gallery .card {
   transition: 0.1s linear;
-  box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px;
+  box-shadow: rgb(233, 173, 87) 0px 0px 0px 3px,
+    rgb(230, 143, 59) 0px 0px 0px 6px, rgb(226, 93, 44) 0px 0px 0px 9px,
+    rgb(131, 65, 23) 0px 0px 0px 12px;
 }
 
 .gallery .card:hover {
@@ -76,4 +83,25 @@ img {
 
 .detail__container {
   margin-top: 500px;
+}
+
+.button.is-success {
+  background-color: #7f7536;
+}
+
+.button.is-dark {
+  background-color: #533010;
+}
+
+.button.is-dark:hover {
+  background-color: #268896;
+}
+
+.button.is-success:hover {
+  background-color: #cbad3d;
+}
+
+.navbar-item {
+  font-family: "Kavoon", cursive;
+  font-size: 1.3rem;
 }

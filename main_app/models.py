@@ -18,6 +18,18 @@ class Beer(models.Model):
     class Meta:
         ordering = ['name']
 
+class Favorites(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=90)
+    brand = models.CharField(max_length=120)
+    img = models.CharField(max_length=250)
+    style = models.CharField(max_length=90)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ['name']
 
 
 
