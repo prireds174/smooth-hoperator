@@ -20,27 +20,35 @@
         <title>Smooth Hoperator - {% block title %}{% endblock %}</title>
     </head>
     <body >
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+              <a class="navbar-item" href="/">
+                <img class="logo" src="../static/images/Smooth Hoperator-05.png" alt="Smooth Hoperator"/> 
+              </a>
+            </div>
+          </nav>
         <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
-                <a class="navbar-item" href="/">Smooth Hoperator</a>
+                <a class="navbar-item" href="/"></a>
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                 </a>
             </div>
-            <div class="navbar-menu navbar-start">
+            <div class="navbar-menu navbar-end">
                 <a class="navbar-item" href="/about">About</a>
                 <a class="navbar-item" href="/beers">Beers</a>
-                <a class="navbar-item" href="/breweries">Breweries</a>
-            </div>
+                <a class="navbar-item breweries" href="/breweries">Breweries</a>
+            
             {% if user.is_authenticated %}
-                    <div class="navbar-menu navbar-end">
-                        <span class="navbar-item">Welcome: {{user.username}}</span>
+                
+                        <a class="navbar-item">Welcome: {{user.username}}</a><a class="navbar-item" href="{% url 'favorite_list' %}">Favorites</a>
                         <a class="navbar-item" href="{% url 'logout' %}">Logout</a>
-                    </div>
+                        
+                    
                 {% else %}
-                    <div class="navbar-menu navbar-end">
+                    
                         <a class="navbar-item" href="{% url 'login' %}">Log In</a>
                         <a class="navbar-item" href="{% url 'signup' %}">Sign Up</a>
                     </div>

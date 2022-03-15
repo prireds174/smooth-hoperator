@@ -15,7 +15,7 @@ h3 {
 
 .container {
   padding: 40px;
-  padding-right: 0;
+  
 }
 
 .title {
@@ -104,4 +104,28 @@ img {
 .navbar-item {
   font-family: "Kavoon", cursive;
   font-size: 1.3rem;
+}
+
+.navbar.is-dark{
+  background-color: #ffffff00;
+}
+
+.navbar {
+  background-color: transparent;
+}
+
+.navbar-item img {
+  max-width: 50rem;
+  max-height: 54rem;
+  object-position: center; 
+
+}
+
+.navbar-item {
+  padding-right: 50px;
+  padding-left: 50px;
+}
+.navbar-item.breweries {
+  padding-right: 50px;
+  padding-left: 50px;
 }
