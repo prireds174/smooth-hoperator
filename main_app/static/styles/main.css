@@ -5,7 +5,14 @@ body {
 }
 
 h1 {
-  color: #006a78;
+  color: #56001b;
+  font-family: "Chicle", cursive;
+  text-align: center;
+  font-size: 50px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  text-shadow: 0px 0px 5px rgb(233, 173, 87), 0px 0px 7px rgb(230, 143, 59),
+    0px 0px 9px rgb(226, 93, 44), 0px 0px 11px rgb(131, 65, 23);
 }
 
 h2,
@@ -15,7 +22,6 @@ h3 {
 
 .container {
   padding: 40px;
-  
 }
 
 .title {
@@ -44,7 +50,8 @@ h3 {
 }
 
 p {
-  font-size: 18px;
+  font-size: 25px;
+  color: #7f7536;
 }
 
 .detail__img {
@@ -52,9 +59,10 @@ p {
   left: 0;
   top: 0;
   width: 100%;
-  height: 520px;
+  height: 550px;
   background-color: #ffffff;
   overflow: visible;
+  padding: 25px;
 }
 
 .detail__img::after {
@@ -64,8 +72,12 @@ p {
   top: 0;
   left: 0;
   width: 100%;
-  height: 520px;
+  height: 550px;
   z-index: 5;
+  box-shadow: rgb(233, 173, 87)
+      0px 0px 0px 3px,
+    rgb(230, 143, 59) 0px 0px 0px 6px, rgb(226, 93, 44) 0px 0px 0px 9px,
+    rgb(131, 65, 23) 0px 0px 0px 12px;
 }
 
 img {
@@ -85,12 +97,20 @@ img {
   margin-top: 500px;
 }
 
+div.detail_about {
+  padding: 25px;
+}
+
 .button.is-success {
   background-color: #7f7536;
 }
 
 .button.is-dark {
   background-color: #533010;
+}
+
+.button.is-dark.beer{
+  margin-top: 20px;
 }
 
 .button.is-dark:hover {
@@ -106,7 +126,7 @@ img {
   font-size: 1.3rem;
 }
 
-.navbar.is-dark{
+.navbar.is-dark {
   background-color: #ffffff00;
 }
 
@@ -117,15 +137,30 @@ img {
 .navbar-item img {
   max-width: 50rem;
   max-height: 54rem;
-  object-position: center; 
-
+  object-position: center;
 }
 
 .navbar-item {
   padding-right: 50px;
   padding-left: 50px;
+  margin-bottom: 65px;
 }
 .navbar-item.breweries {
   padding-right: 50px;
   padding-left: 50px;
+}
+
+.card-header-title {
+  color: #7d7135;
+  font-family: "Kavoon", cursive;
+}
+
+.title.is-4 {
+  padding-top: 25px;
+  font-size: 30px;
+}
+
+span{
+  color:#56001b;
+  font-family:'Kavoon', cursive;
 }

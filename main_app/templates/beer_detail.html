@@ -3,6 +3,23 @@
 <div class="detail__img">
   <img src="{{beer.img}}" alt="{{beer.name}}" />
 </div>
+
+<div class="detail__container">
+  
+    
+    <div><h1 class="title">{{beer.name}}</h1></div>
+    
+  <div class="detail__about">
+    <h4 class="title is-4">Description</h4>
+    <p>{{ beer.description }}</p>
+  </div>
+</div>
+
+<div class="buttons">
+  <a href="{% url 'beer_update' beer.pk %}" class="button is-dark beer">
+      <i class="">Update On Tap</i>
+  </a>
+  </div>
 <div class="detail__name">
   {% if beer.currently_being_poured %}
   <div class="icon-text">
@@ -12,24 +29,7 @@
     <span>On tap</span>
   </div>
   {% endif %}
-  <h1 class="title">{{beer.name}}</h1>
-  <a href="{% url 'beer_list' %}">Back to The Brews</a>
-
+  
 </div>
-
-<div class="detail__container">
-  <div class="buttons">
-    <a href="{% url 'beer_update' beer.pk %}" class="button is-info">
-      <span class="icon">
-        <i class="fas fa-edit"></i>
-      </span>
-    </a>
-  <div class="detail__about">
-    <h4 class="title is-4">Description</h4>
-    <p>{{ beer.description }}</p>
-  </div>
-</div>
-
-
 
 {% endblock %}
