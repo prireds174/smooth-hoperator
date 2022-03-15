@@ -17,9 +17,13 @@ h1 {
 
 h2,
 h3 {
-  color: #ffffff;
+  color: #56001b;
+  font-family: 'Chicle', cursive;
 }
 
+h3{
+  font-size: 25px;
+}
 .container {
   padding: 40px;
 }
@@ -50,7 +54,7 @@ h3 {
 }
 
 p {
-  font-size: 25px;
+  font-size: 20px;
   color: #7f7536;
 }
 
@@ -100,6 +104,15 @@ img {
 div.detail_about {
   padding: 25px;
 }
+
+h2.brewery-info {
+  padding-top: 55px;
+  font-family: 'Chicle', cursive;
+  font-size: 35px;
+  color:#56001b;
+  text-align: center;
+}
+
 
 .button.is-success {
   background-color: #7f7536;

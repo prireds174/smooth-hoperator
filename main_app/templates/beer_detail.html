@@ -1,6 +1,8 @@
 {% extends 'base.html' %} {% block content %}
- 
+
+<a href="{% url 'beer_list' %}">Back to Brews</a>
 <div class="detail__img">
+
   <img src="{{beer.img}}" alt="{{beer.name}}" />
 </div>
 
@@ -8,7 +10,7 @@
   
     
     <div><h1 class="title">{{beer.name}}</h1></div>
-    
+    <a class="backpage" href="{% url 'beer_list' %}">Back to Brews</a>
   <div class="detail__about">
     <h4 class="title is-4">Description</h4>
     <p>{{ beer.description }}</p>

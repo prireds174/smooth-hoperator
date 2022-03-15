@@ -1,4 +1,6 @@
-{% extends 'base.html' %} {% block content %}
+
+{% extends 'base.html' %}{% block content %}
+
  
 <div class="detail__img">
   <img src="https://media.istockphoto.com/photos/beer-tasting-picture-id488101157?b=1&k=20&m=488101157&s=170667a&w=0&h=Jyg9GeyKOj4CzL7oND2AvUsV9pB0EqxfF7UcbTjsH24=" alt="{{brewery.name}}" />
@@ -19,8 +21,8 @@
 
 <div class="detail__container">
   
-  <div class="detail__about">
-    <h2 class="title is-3">Brewery Info</h2>
+  <div class="detail__breweries">
+    <h2 class="brewery-info">Brewery Info</h2>
     <h3>Brewery Type</h3>
     <p>{{ brewery.brewery_type }}</p>
     <h3>Address</h3>
