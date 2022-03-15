@@ -49,4 +49,13 @@ class BeerList(TemplateView):
             context["beers"] = Beer.objects.all()
             context["header"] = "The Brews"
             return context
-        
+
+          postgres://orqmdvlkxppwan:da7518e74deea8c59c06da47ea7e480d48cd9e2c467d4bab12986921e8117a27@ec2-52-70-186-184.compute-1.amazonaws.com:5432/d3k74pqlpqskae  
+DATABASE_URL:  postgres://username:password@host:port/dbname
+
+
+psql -h "ec2-52-70-186-184.compute-1.amazonaws.com&ssl=require" -d d3k74pqlpqskae -U orqmdvlkxppwan -f db/create_beers.sql
+
+psql postgres://orqmdvlkxppwan:da7518e74deea8c59c06da47ea7e480d48cd9e2c467d4bab12986921e8117a27@ec2-52-70-186-184.compute-1.amazonaws.com:5432/d3k74pqlpqskae -f db/create_beers.sql
+
+
