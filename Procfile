@@ -1,1 +1,1 @@
-web: gunicorn smooth-hoperator.wsgi
+web: gunicorn brews_project.wsgi
