@@ -1,6 +1,11 @@
 ### Smooth Hoperator
 
 > An app to find nearby breweries for a nice sip after. Beer section in app to list different beers from different places. 
+
+App Link
+
+https://smooth-hoperator.herokuapp.com/
+
 ## Future Implementations
 > Implement User feedback feature for Breweries.
 
@@ -23,8 +28,6 @@
 - Implement User feedback feature for Breweries.
 - Connect beers to brewery api id.
 - Update favorites cards to show more detail.
-
-##Site Showcase
 
 ### Wireframes
 
