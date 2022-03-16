@@ -3,7 +3,9 @@ body {
   color: #ffffff;
   min-height: 100vh;
   background-image: url("../images/Home-page.jpg");
-  background-size: cover;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  
 }
 
 h1 {
@@ -151,6 +153,11 @@ h2.brewery-info {
 }
 
 .navbar {
+  background-color: transparent;
+}
+
+
+.navbar-menu {
   background-color: transparent;
 }
 
