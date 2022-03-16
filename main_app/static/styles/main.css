@@ -18,10 +18,10 @@ h1 {
 h2,
 h3 {
   color: #56001b;
-  font-family: 'Chicle', cursive;
+  font-family: "Chicle", cursive;
 }
 
-h3{
+h3 {
   font-size: 25px;
 }
 .container {
@@ -78,8 +78,7 @@ p {
   width: 100%;
   height: 550px;
   z-index: 5;
-  box-shadow: rgb(233, 173, 87)
-      0px 0px 0px 3px,
+  box-shadow: rgb(233, 173, 87) 0px 0px 0px 3px,
     rgb(230, 143, 59) 0px 0px 0px 6px, rgb(226, 93, 44) 0px 0px 0px 9px,
     rgb(131, 65, 23) 0px 0px 0px 12px;
 }
@@ -107,12 +106,11 @@ div.detail_about {
 
 h2.brewery-info {
   padding-top: 55px;
-  font-family: 'Chicle', cursive;
+  font-family: "Chicle", cursive;
   font-size: 35px;
-  color:#56001b;
+  color: #56001b;
   text-align: center;
 }
-
 
 .button.is-success {
   background-color: #7f7536;
@@ -122,7 +120,7 @@ h2.brewery-info {
   background-color: #533010;
 }
 
-.button.is-dark.beer{
+.button.is-dark.beer {
   margin-top: 20px;
 }
 
@@ -173,7 +171,16 @@ h2.brewery-info {
   font-size: 30px;
 }
 
-span{
-  color:#56001b;
-  font-family:'Kavoon', cursive;
+span {
+  color: #56001b;
+  font-family: "Kavoon", cursive;
+}
+
+.icon {
+  height: 5rem;
+  width: 5rem;
+}
+
+.footer {
+  padding: 3rem 1.5rem 3rem 1.5rem;
 }
