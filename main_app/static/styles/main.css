@@ -2,6 +2,8 @@ body {
   background-color: #e3d7c9;
   color: #ffffff;
   min-height: 100vh;
+  background-image: url("../images/Home-page.jpg");
+  background-size: cover;
 }
 
 h1 {
