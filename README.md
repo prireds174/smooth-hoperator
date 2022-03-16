@@ -29,6 +29,10 @@ https://smooth-hoperator.herokuapp.com/
 - Connect beers to brewery api id.
 - Update favorites cards to show more detail.
 
+### Code Snippets
+
+![image](https://user-images.githubusercontent.com/97041885/158624921-d8787ec8-f4ca-4c55-9e97-3e388fa3af1f.png)
+
 ### Wireframes
 
 ![image](https://share.balsamiq.com/c/7r4xErjdKaZDsgngc2WmiD.png)
