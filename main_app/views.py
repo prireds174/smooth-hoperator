@@ -101,7 +101,7 @@ class FavoriteCreate(CreateView):
     # redirect
 
     def get_success_url(self):
-        print(self.kwargs)
+
         return reverse('favorite_list')
 
 
@@ -120,7 +120,7 @@ class BeerCreate(CreateView):
     # redirect
 
     def get_success_url(self):
-        print(self.kwargs)
+
         return reverse('beer_detail', kwargs={'pk': self.object.pk})
 
 
@@ -156,7 +156,7 @@ class BreweryDetail(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        print(self.kwargs)
+
         response = requests.get(
             f"https://api.openbrewerydb.org/breweries/{self.kwargs['pk']}")
         context['brewery'] = response.json()
