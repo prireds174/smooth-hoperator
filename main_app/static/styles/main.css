@@ -5,7 +5,6 @@ body {
   background-image: url("../images/Home-page.jpg");
   background-size: 100% auto;
   background-repeat: no-repeat;
-  
 }
 
 h1 {
@@ -97,7 +96,7 @@ img {
 .detail__name {
   position: absolute;
   z-index: 5;
-  top: 400px;
+  padding-top: 100px;
 }
 
 .detail__container {
@@ -155,7 +154,6 @@ h2.brewery-info {
 .navbar {
   background-color: transparent;
 }
-
 
 .navbar-menu {
   background-color: transparent;
