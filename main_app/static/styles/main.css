@@ -159,10 +159,18 @@ h2.brewery-info {
   background-color: transparent;
 }
 
-.navbar-item img {
-  max-width: 50rem;
-  max-height: 54rem;
+img.brand-logo {
+  width: 50rem;
+  max-height: 55rem;
+  margin: auto;
   object-position: center;
+}
+
+@media screen and (max-width: 400px) {
+  img.brand-logo {
+    width: 20rem;
+  }
+
 }
 
 .navbar-item.breweries {
