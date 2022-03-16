@@ -135,14 +135,17 @@ h2.brewery-info {
 .navbar-item {
   font-family: "Kavoon", cursive;
   font-size: 1.3rem;
+  padding-right: 50px;
+  padding-left: 50px;
+  margin-bottom: 65px;
+  color: white;
 }
 
-.navbar-item:hover{
-  background-color: #7d7135;
+.navbar-item.breweries:hover {
+  color: #7d7135;
 }
-
-.navbar.is-dark {
-  background-color: transparent;
+.navbar-item.main:hover {
+  color: #7d7135;
 }
 
 .navbar {
@@ -154,14 +157,6 @@ h2.brewery-info {
   max-height: 54rem;
   object-position: center;
 }
-
-.navbar-item {
-  padding-right: 50px;
-  padding-left: 50px;
-  margin-bottom: 65px;
-}
-
-
 
 .navbar-item.breweries {
   padding-right: 50px;

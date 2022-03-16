@@ -28,7 +28,7 @@
               </a>
             </div>
           </nav>
-        <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+        <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <a class="navbar-item" href="/"></a>
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
@@ -38,20 +38,21 @@
                 </a>
             </div>
             <div class="navbar-menu navbar-end">
-                <a class="navbar-item" href="/about">About</a>
-                <a class="navbar-item" href="/beers">Beers</a>
+                <a class="navbar-item main" href="/about">About</a>
+                <a class="navbar-item main" href="/beers">Beers</a>
                 <a class="navbar-item breweries" href="/breweries">Breweries</a>
             
             {% if user.is_authenticated %}
                 
-                        <a class="navbar-item">Welcome: {{user.username}}</a><a class="navbar-item" href="{% url 'favorite_list' %}">Favorites</a>
-                        <a class="navbar-item" href="{% url 'logout' %}">Logout</a>
+                        <a class="navbar-item">Welcome: {{user.username}}</a>
+                        <a class="navbar-item main" href="{% url 'favorite_list' %}">Favorites</a>
+                        <a class="navbar-item main" href="{% url 'logout' %}">Logout</a>
                         
                     
                 {% else %}
                     
-                        <a class="navbar-item" href="{% url 'login' %}">Log In</a>
-                        <a class="navbar-item" href="{% url 'signup' %}">Sign Up</a>
+                        <a class="navbar-item main" href="{% url 'login' %}">Log In</a>
+                        <a class="navbar-item main" href="{% url 'signup' %}">Sign Up</a>
                     </div>
                 {% endif %}
         </nav>
