@@ -35,3 +35,6 @@ https://smooth-hoperator.herokuapp.com/
 
 ### Wireframes
 
+![image](https://github.com/prireds174/smooth-hoperator/blob/main/wire/Screenshot%202022-06-08%20144600.png)
+![image](https://github.com/prireds174/smooth-hoperator/blob/main/wire/Screenshot%202022-06-08%20144653.png)
+![image](https://github.com/prireds174/smooth-hoperator/blob/main/wire/Screenshot%202022-06-08%20144707.png)
