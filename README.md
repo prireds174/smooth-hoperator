@@ -35,4 +35,3 @@ https://smooth-hoperator.herokuapp.com/
 
 ### Wireframes
 
-![image](https://share.balsamiq.com/c/7r4xErjdKaZDsgngc2WmiD.png)
