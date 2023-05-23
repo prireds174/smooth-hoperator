@@ -10,15 +10,18 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+from ddtrace.sampler import DatadogSampler, SamplingRule
+from ddtrace import tracer
+from ddtrace import patch_all
+import django_on_heroku
 from pathlib import Path
 import os
 from dotenv import load_dotenv
 load_dotenv()
-import django_on_heroku
+patch_all()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -41,7 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'main_app'
+    'main_app',
+    'ddtrace.contrib.django',
 ]
 
 MIDDLEWARE = [
@@ -133,3 +137,9 @@ LOGOUT_REDIRECT_URL = '/'
 
 
 django_on_heroku.settings(locals())
+
+# Configure sampler with specific rules
+tracer.configure(sampler=DatadogSampler(rules=[
+    # Sample all 'django' traces at 100.00%:
+    SamplingRule(sample_rate=1.0000, service='django')
+]))

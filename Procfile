@@ -1,1 +1,0 @@
-web: gunicorn brews_project.wsgi
